@@ -2,6 +2,7 @@ package com.suhy.graduation1.controller;
 
 import com.suhy.graduation1.Response;
 import com.suhy.graduation1.dto.SysUserDto;
+import com.suhy.graduation1.entity.SysUserEntity;
 import com.suhy.graduation1.mapper.SysUserMapper;
 import com.suhy.graduation1.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,19 @@ public class HelloController {
     @Autowired
     private ISysUserService sysUserService;
 
+    // 基于 jpa 的数据查询
     @GetMapping("/hello/{id}")
     public Response<SysUserDto> hello1(@PathVariable long id) {
         SysUserDto user = sysUserService.getList(id);
+        System.out.printf("%s\n", user.toString());
+
+        return Response.success(user);
+    }
+
+    // 基于 mybatis 的数据查询
+    @GetMapping("/hello2/{id}")
+    public Response<SysUserEntity> hello2(@PathVariable long id) {
+        SysUserEntity user = sysUserMapper.findById(id);
         System.out.printf("%s\n", user.toString());
 
         return Response.success(user);

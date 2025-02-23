@@ -13,6 +13,9 @@ public interface SysUserMapper {
     @Select("select * from sys_user")
     List<SysUserEntity> findAll();
 
+    @Select("select * from sys_user where id = #{id}")
+    SysUserEntity findById(Long id);
+
     @Insert("INSERT into sys_user(username, pwd, nickname, email, phone, address) " +
             "VALUES (#{username}, #{pwd}, #{nickname}, #{email}, #{phone})")
     int insert(SysUserEntity sysUserEntity);

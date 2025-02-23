@@ -4,6 +4,7 @@ import com.suhy.graduation1.converter.UserConverter;
 import com.suhy.graduation1.dao.SysUserRepository;
 import com.suhy.graduation1.dto.SysUserDto;
 import com.suhy.graduation1.entity.SysUserEntity;
+import com.suhy.graduation1.mapper.SysUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,5 +58,13 @@ public class SysUserService implements ISysUserService {
     public Long deleteUser(long id) {
         sysUserRepository.deleteById(id);
         return 1L;
+    }
+
+    @Autowired
+    private SysUserMapper sysUserMapper;
+
+    // 基于 mapper 对象查询数据
+    public SysUserEntity findById(Long id) {
+        return sysUserMapper.findById(id);
     }
 }

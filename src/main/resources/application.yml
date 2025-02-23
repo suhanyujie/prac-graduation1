@@ -1,5 +1,7 @@
 server:
   port: 8085
+  servlet:
+    context-path: /graduation1 # 该路径需要加载访问地址中，比如：`https://127.0.0.1/graduation1/user/hello2/2`
 
 spring:
   application:
