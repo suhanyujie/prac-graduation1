@@ -7,8 +7,10 @@ spring:
   application:
     name: graduation1
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/gradu_pro?serverTimezone=GMT%2b9
+#    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/gradu_pro?serverTimezone=GMT%2b9
+    url: jdbc:mysql://localhost:3306/web?serverTimezone=GMT%2b9
     username: root
     password: 123456
 

@@ -1,10 +1,11 @@
-package com.suhy.graduation1.service;
+package com.suhy.graduation1.service.impl;
 
 import com.suhy.graduation1.converter.UserConverter;
 import com.suhy.graduation1.dao.SysUserRepository;
 import com.suhy.graduation1.dto.SysUserDto;
 import com.suhy.graduation1.entity.SysUserEntity;
 import com.suhy.graduation1.mapper.SysUserMapper;
+import com.suhy.graduation1.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

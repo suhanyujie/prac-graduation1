@@ -60,3 +60,16 @@ public SysUserEntity findById(Long id) {
     return sysUserMapper.findById(id);
 }
 ```
+
+## 一些问题
+### 提示 `java: cannot find symbol`
+参考这个[文章](https://www.nxcoding.com/archives/lombok-annotation-not-working-springboot) ，将 pom 文件中的 lombok 依赖信息中的 optional 标签注释即可。
+
+```pom
+ <dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <!-- <optional>true</optional> -->
+</dependency>
+```
+
