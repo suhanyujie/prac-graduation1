@@ -61,6 +61,29 @@ public SysUserEntity findById(Long id) {
 }
 ```
 
+## 服务启动时，增加初始化逻辑
+可以对一个 service 类增加 @Service 注解，然后在该类中增加 @PostConstruct 注解，在服务启动时，会自动执行该方法：
+
+```java
+@Service
+public class A1 {
+    private A2 a2;
+
+    /**
+     * 初始化 tron 配置
+     */
+    @PostConstruct
+    public void initTronConfig() {
+        System.out.println("initTronConfig...\n");
+    }
+
+    public A1() {
+        a2 = new A2();
+        System.out.println("A1 exec...\n");
+    }
+}
+```
+
 ## 一些问题
 ### 提示 `java: cannot find symbol`
 参考这个[文章](https://www.nxcoding.com/archives/lombok-annotation-not-working-springboot) ，将 pom 文件中的 lombok 依赖信息中的 optional 标签注释即可。
