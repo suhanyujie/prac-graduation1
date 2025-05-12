@@ -6,11 +6,18 @@ import com.suhy.graduation1.entity.work1.BettingContentEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
 
 @SpringBootTest
+@ComponentScan("com.suhy.graduation1")
 public class BettingContentServiceTest {
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     @Autowired
     BettingContentService bettingContentService;
@@ -45,6 +52,9 @@ public class BettingContentServiceTest {
     @Test
     public void testConstruct1() {
         A1 a1 = new A1();
+        A1 a1Other1 = applicationContext.getBean(A1.class);
+        a1Other1.fn1();
+        a1Other1.fn1();
     }
 }
 
